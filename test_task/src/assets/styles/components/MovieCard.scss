@@ -1,0 +1,102 @@
+@use '../global/variables';
+
+.movie-card {
+  display: flex;
+  position: relative;
+  min-height: 168px;
+  background-color: variables.$color-charcoal;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 168px;
+    min-height: 100%;
+    background-color: variables.$color-silver;
+  }
+
+  &__img {
+    width: 112px;
+    height: 168px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 8px;
+    padding: 31px 24px 25px;
+  }
+
+  &__link {
+    margin: 0 0 4px;
+    max-width: max-content;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 34px;
+    line-height: 34px;
+  }
+
+  &__info,
+  &__director,
+  &__actors-label {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    color: variables.$color-suva-grey;
+    text-transform: uppercase;
+  }
+
+  &__director {
+    margin: 0 0 2px;
+  }
+
+  &__actors {
+    margin: 0 0 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    &-label {
+      line-height: 16px;
+    }
+
+    &-list {
+      font-size: 12px;
+      line-height: 16px;
+      color: variables.$color-whisper;
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  &__timing {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 24px 9px 0;
+    top: 32px;
+    right: 0;
+    width: 184px;
+    height: 30px;
+    background-color: variables.$color-silver;
+    clip-path: polygon(4% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  &__duration {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: variables.$color-default-black;
+  }
+}

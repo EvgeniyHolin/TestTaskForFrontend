@@ -1,0 +1,101 @@
+@use '../global/variables';
+@use '../global/mixins';
+
+.movies {
+  $root: &;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0 0 40px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+
+  &__filters {
+    position: relative;
+    display: flex;
+    gap: 40px;
+    padding: 0 0 19px;
+    border-bottom: 1px solid variables.$color-silver;
+  }
+
+  &__filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+
+  &__input {
+    &:checked + #{$root}__label {
+      &::after {
+        border-color: variables.$color-sunset-orange;
+        background-color: variables.$color-sunset-orange;
+      }
+    }
+
+    &:checked ~ #{$root}__check {
+      display: block;
+    }
+  }
+
+  &__label {
+    padding: 0 0 0 25px;
+    color: variables.$color-silver;
+    user-select: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      border: 1px solid variables.$color-silver;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
+
+  &__check {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &__loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  &__item {
+    box-shadow: 0px 4px 4px 0px rgba(variables.$color-default-black, 0.25);
+    transition: transform 0.3s ease-in, box-shadow 0.3s ease-in;
+
+    @include mixins.hover-focus {
+      outline: none;
+      transform: translateY(-8px);
+      box-shadow: 0px 8px 20px 0px rgba(variables.$color-default-black, 0.59);
+    }
+  }
+}

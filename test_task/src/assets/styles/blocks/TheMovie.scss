@@ -1,0 +1,37 @@
+@use '../global/variables';
+
+.movie {
+  &__wrapper {
+    margin: 0 0 42px;
+    padding: 0 0 22px;
+    border-bottom: 1px solid variables.$color-silver;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__link-text {
+    font-size: 20px;
+    line-height: 20px;
+    color: variables.$color-sunset-orange;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  &__loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__empty {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 44px;
+    letter-spacing: 0.3px;
+  }
+}
